@@ -20,6 +20,7 @@ CREATE TABLE profiles (
 	photo_id INT UNSIGNED NOT NULL	
 );
 
+-- Таблица сообщений
 CREATE TABLE messages (
 	id INT  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	from_user_id INT UNSIGNED NOT NULL,
@@ -29,7 +30,7 @@ CREATE TABLE messages (
 	is_delivered BOOLEAN,
 	created_at  DATETIME DEFAULT NOW() 
 );
-
+-- Таблица отношений
 CREATE TABLE friendship (
 	user_id INT UNSIGNED NOT NULL,
 	friend_id INT UNSIGNED NOT NULL,
@@ -38,3 +39,22 @@ CREATE TABLE friendship (
 	confirmed_at  DATETIME, 
 	PRIMARY KEY (user_id, friend_id)
 );
+
+-- Таблица статусов
+CREATE TABLE friendship_status (
+	id INT  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(10) NOT NULL UNIQUE
+)
+
+-- Таблица групп
+CREATE TABLE communites (
+	id INT  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(150) NOT NULL UNIQUE
+)
+
+-- Таблица связи между пользователями и сообществами
+CREATE TABLE communites_users (
+	community_id INT  UNSIGNED NOT NULL,
+	user_id INT UNSIGNED NOT NULL,
+	PRIMARY KEY (community_id, user_id)
+)
