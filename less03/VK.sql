@@ -27,6 +27,14 @@ CREATE TABLE messages (
 	body TEXT NOT NULL,
 	is_important BOOLEAN,
 	is_delivered BOOLEAN,
-	created_at  DATETIME DEFAULT NOW()
+	created_at  DATETIME DEFAULT NOW() 
 );
 
+CREATE TABLE friendship (
+	user_id INT UNSIGNED NOT NULL,
+	friend_id INT UNSIGNED NOT NULL,
+	status_id INT UNSIGNED NOT NULL,
+	requested_at  DATETIME DEFAULT NOW(),
+	confirmed_at  DATETIME, 
+	PRIMARY KEY (user_id, friend_id)
+);
