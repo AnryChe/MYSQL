@@ -239,4 +239,132 @@ select * from storehouses_products order by value is null, value;
 select * from users;
 select * from users where birthday_at RLIKE '-08-|-05-'; -- если месяцы заданы may, august, то вместо 08 и 05 ставим may or august 
 
--- 5.	(по желанию) Из таблицы catalogs извлекаются записи при помощи запроса. SELECT * FROM catalogs WHERE id IN (5, 1, 2); Отсортируйте записи в порядке, заданном в списке IN.
+-- 5.	(по желанию) Из таблицы catalogs извлекаются записи при помощи запроса. SELECT * FROM catalogs WHERE id IN (5, 1, 2); 
+-- Отсортируйте записи в порядке, заданном в списке IN.
+select * from catalogs WHERE id IN (5, 1, 2) order by field(id, 5, 1, 2);
+
+-- 1.	Подсчитайте средний возраст пользователей в таблице users
+use vk;
+select * from users;
+create temporary table birthday (birthday_at DATE); -- обнаруживаем отсутствие колонки дня рождения, значит надо добавить...
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1992-12-03');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2017-02-12');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2003-01-11');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2016-03-01');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1982-03-24');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1989-11-10');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1988-02-17');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2001-01-05');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2004-07-02');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1995-06-29');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1999-05-17');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1983-10-08');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1988-04-11');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1993-03-10');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1971-02-12');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1982-07-06');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1983-03-23');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2006-08-13');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2009-01-11');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1997-07-17');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2008-11-16');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1970-09-29');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1975-01-25');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2017-04-28');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2017-07-05');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1977-05-07');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1996-11-18');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1985-03-26');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2017-05-18');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1978-04-12');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2004-01-23');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1980-03-23');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2018-07-22');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2012-05-07');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2015-01-31');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1977-03-14');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1987-08-08');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1995-07-12');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1970-08-17');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1974-07-18');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2006-08-17');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1992-12-26');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2016-09-20');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1975-06-16');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2010-04-24');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2019-01-18');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2006-03-01');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1996-09-10');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1970-08-26');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2002-02-28');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2019-09-04');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2011-08-10');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2002-09-17');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1990-08-16');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2012-05-22');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2014-03-01');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2001-11-05');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2018-09-02');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1988-11-11');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1986-01-07');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1976-07-13');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1970-09-01');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1983-06-20');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1970-12-03');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2002-09-19');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2004-03-12');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1973-11-10');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1983-11-21');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2002-01-02');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1972-03-03');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2007-12-23');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2015-02-15');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1990-01-27');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2016-04-08');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2005-08-09');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2004-10-31');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2009-03-07');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1994-03-05');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1983-07-08');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2013-11-12');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1977-05-13');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1998-02-14');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2019-10-23');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1995-01-03');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2019-09-27');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2001-01-20');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1987-12-14');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1970-02-28');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2006-10-27');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1978-01-01');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1980-09-22');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1998-09-30');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2017-02-03');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1987-07-03');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2013-12-12');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1991-02-26');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1989-02-13');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1974-10-04');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('1985-07-03');
+INSERT INTO `birthday` (`birthday_at`) VALUES ('2007-05-19');
+INSERT INTO users (birthday_at) select birthday_at from birthday; -- и вот здесь я застрял...
+
+SELECT AVG(TO_DAYS(NOW()) - TO_DAYS(birthday_at)/365.25) FROM users; -- код в принципе должен быть далее такой.
+-- 2.	Подсчитайте количество дней рождения, которые приходятся на каждый из дней недели. Следует учесть, что необходимы дни недели текущего года, а не года рождения.
+
+-- 3.	(по желанию) Подсчитайте произведение чисел в столбце таблицы
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
