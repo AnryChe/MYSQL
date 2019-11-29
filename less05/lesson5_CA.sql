@@ -352,9 +352,17 @@ INSERT INTO `birthday` (`user_id`, `birthday_at`) VALUES (100, '1988-11-05');
 update users set birthday_at = (select birthday_at from birthday where birthday.user_id = users.id); -- и вот здесь я застрял... и все же справился...
 
 SELECT AVG(TO_DAYS(NOW()) - TO_DAYS(birthday_at)/365.25) FROM users; -- код в принципе должен быть далее такой.
+select avg(timestampdiff(year, birthday_at, now())) as age from users; -- правильное вычисление
 -- 2.	Подсчитайте количество дней рождения, которые приходятся на каждый из дней недели. Следует учесть, что необходимы дни недели текущего года, а не года рождения.
-
+select DATE_FORMAT(date(concat_ws('-', year(now()), month(birthday_at), DAY(birthday_at))), '%W') as day,
+COUNT(*) as total
+FROM users 
+group by 
+day 
+order by
+total desc;
 -- 3.	(по желанию) Подсчитайте произведение чисел в столбце таблицы
+select round(exp(sum(ln(id)))) from catalogs;
 
 
 
