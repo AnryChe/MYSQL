@@ -413,3 +413,38 @@ INSERT INTO `Users` (`id`, `name`, `contacts`, `prfl_id`) VALUES (209, 'Korbin M
 
 SELECT * FROM users LIMIT 20;
 
+DROP TABLE IF EXISTS owner_statuses;
+CREATE TABLE owner_statuses (
+	id int(10) unsigned NOT NULL,
+	name varchar(10),
+	describes varchar(255)
+	);
+INSERT INTO owner_statuses (`id`, `name`, `describes`) VALUES (1, 'Owner', 'Owner of project, employer');
+INSERT INTO owner_statuses (`id`, `name`, `describes`) VALUES (2, 'PM', 'Project manager, person, who create team, tasks and accept completed tasks');
+INSERT INTO owner_statuses (`id`, `name`, `describes`) VALUES (3, 'Employee', 'Employee, who can to do some tasks');
+
+DROP TABLE IF EXISTS skills;
+CREATE TABLE skills (
+	id int(10) unsigned NOT NULL,
+	name varchar(10),
+	describes varchar(255)
+	);
+
+INSERT INTO skills (`id`, `name`, `describes`) VALUES (1, 'PYTHON', 'Cnowledge of Phyton language');
+INSERT INTO skills (`id`, `name`, `describes`) VALUES (2, 'PHP', 'Cnowledge of PHP language');
+INSERT INTO skills (`id`, `name`, `describes`) VALUES (3, 'JAVA', 'Cnowledge of Java language');
+INSERT INTO skills (`id`, `name`, `describes`) VALUES (4, 'MYSQL', 'Cnowledge of MYSQL');
+
+
+CREATE TABLE profiles (
+  user_id int(10) unsigned NOT NULL,
+  sex char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  birthday date DEFAULT NULL,
+  hometown varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  photo_id int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (user_id),
+  KEY profles_photo_id_fk (photo_id),
+  KEY profiles_birthday_idx (birthday),
+  CONSTRAINT profiles_photo_id_fk FOREIGN KEY (photo_id) REFERENCES media (id) ON DELETE SET NULL,
+  CONSTRAINT profiles_user_id_fk FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
