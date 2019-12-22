@@ -9,16 +9,12 @@ CREATE TABLE Users (
 	prfl_id INT UNSIGNED
 );
 
-
 DROP TABLE IF EXISTS owner_statuses;
 CREATE TABLE owner_statuses (
 	id int(10) unsigned NOT NULL,
 	name varchar(10),
 	describes varchar(255)
 	);
-INSERT INTO owner_statuses (`id`, `name`, `describes`) VALUES (1, 'Owner', 'Owner of project, employer');
-INSERT INTO owner_statuses (`id`, `name`, `describes`) VALUES (2, 'PM', 'Project manager, person, who create team, tasks and accept completed tasks');
-INSERT INTO owner_statuses (`id`, `name`, `describes`) VALUES (3, 'Employee', 'Employee, who can to do some tasks');
 
 DROP TABLE IF EXISTS skills;
 CREATE TABLE skills (
@@ -26,12 +22,6 @@ CREATE TABLE skills (
 	name varchar(10),
 	describes varchar(255)
 	);
-
-INSERT INTO skills (`id`, `name`, `describes`) VALUES (1, 'PYTHON', 'Cnowledge of Phyton language');
-INSERT INTO skills (`id`, `name`, `describes`) VALUES (2, 'PHP', 'Cnowledge of PHP language');
-INSERT INTO skills (`id`, `name`, `describes`) VALUES (3, 'JAVA', 'Cnowledge of Java language');
-INSERT INTO skills (`id`, `name`, `describes`) VALUES (4, 'MYSQL', 'Cnowledge of MYSQL');
-
 
 DROP TABLE IF EXISTS Users_skills;
 CREATE TABLE Users_skills (
@@ -80,7 +70,14 @@ CREATE TABLE teams (
 	users_id int(10) unsigned NOT NULL,
 	);
 
-
+CREATE TABLE contracts (
+	owner_id INT UNSIGNED NOT NULL,
+	employee_id INT UNSIGNED NOT NULL,
+	status_id INT UNSIGNED NOT NULL,
+	requested_at  DATETIME DEFAULT NOW(),
+	confirmed_at  DATETIME, 
+	);
+	
 CREATE TABLE profiles (
   user_id int(10) unsigned NOT NULL,
   sex char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
