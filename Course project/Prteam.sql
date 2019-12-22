@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS prteam;
 CREATE DATABASE prteam;
 USE prteam;
 
+-- таблицы пользователей, профилей и фотографий
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -29,6 +30,7 @@ CREATE TABLE profiles (
  	 FOREIGN KEY (photo_id)  REFERENCES photos (id) ON DELETE SET NULL  
     );
 
+ -- таблица статуса заказчика (заказчик, менеджер проекта, наемник)
 DROP TABLE IF EXISTS owner_statuses;
 CREATE TABLE owner_statuses (
 	id int PRIMARY KEY AUTO_INCREMENT,
@@ -36,6 +38,7 @@ CREATE TABLE owner_statuses (
 	describes varchar(255)
 	);
 
+-- скилы пользователей (для IT - знания языков программирования, стеков и т.д.). Вторая таблица - привязка типовых скилов к конкретному пользователю
 DROP TABLE IF EXISTS skills;
 CREATE TABLE skills (
 	id int PRIMARY KEY AUTO_INCREMENT,
@@ -55,6 +58,7 @@ CREATE TABLE Users_skills (
    	 FOREIGN KEY (skill_id)  REFERENCES skills (id) ON DELETE RESTRICT
 	); 
 
+-- таблицы проектов и задач (типовых).  
 DROP TABLE IF EXISTS projects;
 CREATE TABLE projects (
 	id int PRIMARY KEY AUTO_INCREMENT,
@@ -72,6 +76,7 @@ CREATE TABLE tasks (
 	describes varchar(255)
 	);
 
+-- таблица связи проекта, задач, исполнителей задач
 DROP TABLE IF EXISTS projects_tasks;
 CREATE TABLE projects_tasks (
 	prjct_id int(10)  NOT NULL,
@@ -88,6 +93,7 @@ CREATE TABLE projects_tasks (
 		FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE RESTRICT 
 	);
 
+-- таблица требований, предъявляемых к исполнителю той или иной задачи.
 DROP TABLE IF EXISTS tasks_requests;
 CREATE TABLE tasks_requests (
 	id int(10) PRIMARY KEY AUTO_INCREMENT,
@@ -99,6 +105,7 @@ CREATE TABLE tasks_requests (
 		FOREIGN KEY (skill_id)  REFERENCES skills (id) ON DELETE RESTRICT	
 	);
 
+-- таблица проектных команд, привязывает команду исполнителей и ПМ к проекту
 DROP TABLE IF EXISTS teams;
 CREATE TABLE teams (
 	id int(10)  PRIMARY KEY AUTO_INCREMENT,
@@ -113,12 +120,14 @@ CREATE TABLE teams (
 		FOREIGN KEY (owner_id)  REFERENCES owner_statuses (id) ON DELETE RESTRICT ON UPDATE CASCADE
 	);
 
+-- таблица статусов контракта (принят, непринят, завершен, расторгнут)
 DROP TABLE IF EXISTS contract_statuses;
 CREATE TABLE contract_statuses (
 	id INT  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(10) NOT NULL UNIQUE
 );
 
+-- таблица контрактов между заказчиком и наемниками со статусом контракта
 DROP TABLE IF EXISTS contracts;
 CREATE TABLE contracts (
 	owner_id INT  NOT NULL,
@@ -134,6 +143,7 @@ CREATE TABLE contracts (
 		FOREIGN KEY (status_id)  REFERENCES contract_statuses (id) ON DELETE RESTRICT ON UPDATE CASCADE
 	);
 
+-- тут просто переписка
 DROP TABLE IF EXISTS messages;
 CREATE TABLE messages (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
