@@ -1,7 +1,7 @@
 #
 # TABLE STRUCTURE FOR: Users_skills
 #
-
+USE prteam;
 DROP TABLE IF EXISTS `Users_skills`;
 
 CREATE TABLE `Users_skills` (
@@ -1658,36 +1658,26 @@ CREATE TABLE `projects` (
   CONSTRAINT `projects_owners_fk` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (31, 'dolorem', 'Necessitatibus et sunt ex qui nam. Quod porro cupiditate blanditiis eaque molestias dolores et ratione. Eum accusamus veritatis nobis quis doloremque fuga et.', 1);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (32, 'est', 'Quod deserunt autem cum quo quos. Dolor omnis quas totam eligendi mollitia quae. Et modi quod nisi sint voluptatem exercitationem.', 2);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (33, 'itaque', 'Quis ipsa iusto aspernatur aut. Repellat quo ex aut harum. Cumque consequatur iure libero.', 3);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (34, 'quam', 'Et praesentium non beatae labore porro quisquam deleniti. Vel est ut incidunt. Numquam voluptates debitis dolor non. Et possimus dignissimos veritatis.', 4);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (35, 'adipisci', 'Nobis praesentium consequatur accusantium est quidem. Soluta blanditiis in corporis odit qui. Quibusdam quisquam placeat eos.', 5);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (36, 'dolorem', 'Officia ab quos qui et ab assumenda. Sunt itaque minus modi impedit totam voluptatem dolores. Quo officiis ea repellendus ea neque dignissimos voluptatum.', 6);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (37, 'aut', 'Ut consequuntur praesentium ipsum minima dolores sapiente. Ducimus vero cumque libero aut.', 7);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (38, 'aut', 'Aut minus soluta reprehenderit voluptates. Non magnam dicta exercitationem vel. Voluptas reiciendis deleniti odio aut odio beatae quia nobis. Consequatur tenetur quam quaerat magnam in velit.', 8);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (39, 'est', 'Veritatis illum odio assumenda cupiditate voluptatem id omnis. Et quaerat quia est exercitationem eos natus voluptates. Facere sit qui nobis a occaecati sit. Delectus fugiat ut dolores sed voluptates libero.', 9);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (40, 'facilis', 'Exercitationem earum vero sint dolorem assumenda provident. Et accusamus nulla earum ut voluptatem nisi deserunt.', 10);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (41, 'dignissimo', 'Neque eligendi dolorum officia. Qui corporis exercitationem voluptas quibusdam. Maiores quibusdam corporis nihil velit dolore minima sunt.', 11);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (42, 'est', 'Veniam consequatur ea rerum rem. Aliquid velit sed repellendus deserunt dolorem eos omnis deleniti. Harum eius aut sed earum quidem doloribus non ut. Voluptatem quos nemo doloribus officia expedita dolore laboriosam quisquam.', 12);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (43, 'voluptate', 'Possimus magni eos fugit qui alias minima. Quas doloremque et repellendus voluptate corporis et. Et velit aliquid voluptates ab. Eaque quaerat voluptas maxime minus et quam.', 13);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (44, 'impedit', 'Dolorum nobis minus et doloremque omnis rerum quas. Aut consequatur et exercitationem aliquid. Molestias tempore tempore nulla est.', 14);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (45, 'sit', 'Earum et autem ut ipsum laborum. Placeat rerum dolores possimus ab quos accusantium quo. Hic corrupti ex repudiandae rem soluta debitis maxime. Cumque facere laborum esse atque ut aut at.', 15);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (46, 'ea', 'Placeat nulla illum dolorem qui. Fugiat repellendus iure cum occaecati harum ut magni. Id nostrum dolorem deleniti laborum modi cum doloribus. Excepturi et aut ipsum iure.', 16);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (47, 'odit', 'Maiores pariatur illo enim. Earum inventore perferendis voluptatem molestiae omnis quod. Autem distinctio et minima ipsam. Autem sit veritatis dolore fuga.', 17);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (48, 'id', 'Sapiente et qui ex cum excepturi officia dolorum. Qui animi quas harum earum iure. Voluptatum iure delectus molestias autem aut. Ipsa et voluptas cupiditate et. Enim eum quidem est ipsum debitis.', 18);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (49, 'nihil', 'Soluta nihil consequatur neque et et iste. Iure et molestias eum amet nobis et. Rerum illo praesentium debitis quis eos.', 19);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (50, 'nobis', 'Dolores non quasi necessitatibus quae beatae. Ipsam ex quisquam necessitatibus accusamus nemo magni sed. Iste porro minus eveniet aut est quis. Voluptates dolor culpa voluptatem atque ex saepe voluptatem.', 20);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (51, 'porro', 'Aut soluta tenetur quo deserunt velit inventore dolores. Consequatur doloribus fugiat quidem ut recusandae.', 21);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (52, 'excepturi', 'Eligendi aut et non nesciunt velit. Et accusamus aut error.', 22);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (53, 'nulla', 'Quia in ut ea nemo. Quia illo repellat qui sed non cupiditate deleniti.', 23);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (54, 'aut', 'Consequatur quo adipisci ut voluptas consequatur consequuntur non corporis. Consequatur sequi consequatur autem praesentium eveniet illum voluptas illo. Quis harum sed ut nostrum iure.', 24);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (55, 'ducimus', 'Deserunt sit laborum dolores sint adipisci. Iure culpa eius blanditiis nihil unde non eaque. Perferendis consequatur eum eos et. Eaque nobis facilis et ipsum dolore.', 25);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (56, 'inventore', 'Consequatur et dolor eos inventore ipsa. Error quis odio omnis voluptatem id eligendi harum. Quibusdam assumenda ut et esse enim. Impedit ut expedita facilis quo blanditiis. Sed autem commodi reiciendis quia laborum architecto architecto.', 26);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (57, 'ut', 'Alias est est omnis qui consequatur nesciunt iure magnam. Ut amet temporibus nihil laboriosam. Amet libero reprehenderit asperiores quia quia. Aut nulla explicabo sunt autem debitis facere.', 27);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (58, 'non', 'Aliquam ut porro est culpa non fugit et. Occaecati ducimus ipsa mollitia assumenda voluptas qui. Hic et nesciunt sed molestias optio eum.', 28);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (59, 'officia', 'Maxime praesentium quasi a sit. Nostrum molestiae sint dolorum voluptatem illum vero. Magni omnis dolore voluptas sed aliquam deleniti sint. Et repudiandae inventore fuga commodi.', 29);
-INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (60, 'eum', 'Blanditiis dignissimos eligendi laboriosam natus doloribus. Facere qui aut ipsum porro doloremque labore est. Quas accusantium et et aliquid voluptate. Provident sint et voluptatem at quae quod a.', 30);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (1, 'dolorem', 'Necessitatibus et sunt ex qui nam. Quod porro cupiditate blanditiis eaque molestias dolores et ratione. Eum accusamus veritatis nobis quis doloremque fuga et.', 1);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (2, 'est', 'Quod deserunt autem cum quo quos. Dolor omnis quas totam eligendi mollitia quae. Et modi quod nisi sint voluptatem exercitationem.', 2);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (3, 'itaque', 'Quis ipsa iusto aspernatur aut. Repellat quo ex aut harum. Cumque consequatur iure libero.', 3);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (4, 'quam', 'Et praesentium non beatae labore porro quisquam deleniti. Vel est ut incidunt. Numquam voluptates debitis dolor non. Et possimus dignissimos veritatis.', 4);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (5, 'adipisci', 'Nobis praesentium consequatur accusantium est quidem. Soluta blanditiis in corporis odit qui. Quibusdam quisquam placeat eos.', 5);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (6, 'dolorem', 'Officia ab quos qui et ab assumenda. Sunt itaque minus modi impedit totam voluptatem dolores. Quo officiis ea repellendus ea neque dignissimos voluptatum.', 6);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (7, 'aut', 'Ut consequuntur praesentium ipsum minima dolores sapiente. Ducimus vero cumque libero aut.', 7);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (8, 'aut', 'Aut minus soluta reprehenderit voluptates. Non magnam dicta exercitationem vel. Voluptas reiciendis deleniti odio aut odio beatae quia nobis. Consequatur tenetur quam quaerat magnam in velit.', 8);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (9, 'est', 'Veritatis illum odio assumenda cupiditate voluptatem id omnis. Et quaerat quia est exercitationem eos natus voluptates. Facere sit qui nobis a occaecati sit. Delectus fugiat ut dolores sed voluptates libero.', 9);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (10, 'facilis', 'Exercitationem earum vero sint dolorem assumenda provident. Et accusamus nulla earum ut voluptatem nisi deserunt.', 10);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (11, 'dignissimo', 'Neque eligendi dolorum officia. Qui corporis exercitationem voluptas quibusdam. Maiores quibusdam corporis nihil velit dolore minima sunt.', 11);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (12, 'est', 'Veniam consequatur ea rerum rem. Aliquid velit sed repellendus deserunt dolorem eos omnis deleniti. Harum eius aut sed earum quidem doloribus non ut. Voluptatem quos nemo doloribus officia expedita dolore laboriosam quisquam.', 12);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (13, 'voluptate', 'Possimus magni eos fugit qui alias minima. Quas doloremque et repellendus voluptate corporis et. Et velit aliquid voluptates ab. Eaque quaerat voluptas maxime minus et quam.', 13);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (14, 'impedit', 'Dolorum nobis minus et doloremque omnis rerum quas. Aut consequatur et exercitationem aliquid. Molestias tempore tempore nulla est.', 14);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (15, 'sit', 'Earum et autem ut ipsum laborum. Placeat rerum dolores possimus ab quos accusantium quo. Hic corrupti ex repudiandae rem soluta debitis maxime. Cumque facere laborum esse atque ut aut at.', 15);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (16, 'ea', 'Placeat nulla illum dolorem qui. Fugiat repellendus iure cum occaecati harum ut magni. Id nostrum dolorem deleniti laborum modi cum doloribus. Excepturi et aut ipsum iure.', 16);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (17, 'odit', 'Maiores pariatur illo enim. Earum inventore perferendis voluptatem molestiae omnis quod. Autem distinctio et minima ipsam. Autem sit veritatis dolore fuga.', 17);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (18, 'id', 'Sapiente et qui ex cum excepturi officia dolorum. Qui animi quas harum earum iure. Voluptatum iure delectus molestias autem aut. Ipsa et voluptas cupiditate et. Enim eum quidem est ipsum debitis.', 18);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (19, 'nihil', 'Soluta nihil consequatur neque et et iste. Iure et molestias eum amet nobis et. Rerum illo praesentium debitis quis eos.', 19);
+INSERT INTO `projects` (`id`, `name`, `describes`, `owner_id`) VALUES (20, 'nobis', 'Dolores non quasi necessitatibus quae beatae. Ipsam ex quisquam necessitatibus accusamus nemo magni sed. Iste porro minus eveniet aut est quis. Voluptates dolor culpa voluptatem atque ex saepe voluptatem.', 20);
 
 
 #
@@ -2073,7 +2063,7 @@ INSERT INTO `tasks_requests` (`id`, `tsk_id`, `skill_id`) VALUES (200, 49, 13);
 DROP TABLE IF EXISTS `teams`;
 
 CREATE TABLE `teams` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL,
   `prjct_id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
   `owner_id` int(10) NOT NULL,
@@ -2086,7 +2076,14 @@ CREATE TABLE `teams` (
   CONSTRAINT `teams_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (146, 60, 47, 5);
+INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (1, 6, 47, 5);
+INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (1, 6, 12, 5);
+INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (1, 6, 11, 5);
+INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (2, 6, 44, 5);
+INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (2, 6, 171, 5);
+INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (3, 2, 95, 14);
+INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (3, 2, 357, 14);
+INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (3, 2, 128, 14);
 
 
 #
