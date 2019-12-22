@@ -45,7 +45,7 @@ CREATE TABLE projects_tasks (
 	tsks_id int(10) unsigned NOT NULL,
 	users_id int(10) unsigned NOT NULL,
 	start_data timestamp NULL,
-	finish_data timestamp NULL
+	finish_data timestamp NULL,
 	deadline timestamp NULL
 	);
 	
@@ -53,21 +53,21 @@ DROP TABLE IF EXISTS tasks;
 CREATE TABLE tasks (
 	id int(10) unsigned NOT NULL,
 	name varchar(10),
-	describes varchar(255),
+	describes varchar(255)
 	);
 
 DROP TABLE IF EXISTS tasks_requests;
 CREATE TABLE tasks_requests (
 	id int(10) unsigned NOT NULL,
 	tsks_id int(10) unsigned NOT NULL,
-	skill_id int(10) unsigned NOT NULL,
+	skill_id int(10) unsigned NOT NULL
 	);
 
 DROP TABLE IF EXISTS teams;
 CREATE TABLE teams (
 	id int(10) unsigned NOT NULL,
 	prjct_id int(10) unsigned NOT NULL,
-	users_id int(10) unsigned NOT NULL,
+	users_id int(10) unsigned NOT NULL
 	);
 
 CREATE TABLE contracts (
@@ -75,14 +75,31 @@ CREATE TABLE contracts (
 	employee_id INT UNSIGNED NOT NULL,
 	status_id INT UNSIGNED NOT NULL,
 	requested_at  DATETIME DEFAULT NOW(),
-	confirmed_at  DATETIME, 
+	confirmed_at  DATETIME
 	);
 	
+ 
+CREATE TABLE Contract_statuses (
+	id INT  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(10) NOT NULL UNIQUE
+);
+
+CREATE TABLE messages (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  from_user_id int(10) unsigned NOT NULL,
+  to_user_id int(10) unsigned NOT NULL,
+  body text COLLATE utf8_unicode_ci NOT NULL,
+  is_important tinyint(1) DEFAULT NULL,
+  is_delivered tinyint(1) DEFAULT NULL,
+  created_at datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (id)
+);
+
 CREATE TABLE profiles (
   user_id int(10) unsigned NOT NULL,
   sex char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   birthday date DEFAULT NULL,
   hometown varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   photo_id int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (user_id),
+  PRIMARY KEY (user_id)
   );
