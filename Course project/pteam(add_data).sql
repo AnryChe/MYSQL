@@ -1226,19 +1226,20 @@ INSERT INTO `photos` (`id`, `filename`) VALUES (300, 'http://hic');
 # TABLE STRUCTURE FOR: profiles
 #
 
-DROP TABLE IF EXISTS `profiles`;
 
-CREATE TABLE `profiles` (
-  `user_id` int(11) NOT NULL,
-  `sex` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `birthday` date DEFAULT NULL,
-  `hometown` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `photo_id` int(10) unsigned DEFAULT NULL,
-  KEY `profiles__users_fk` (`user_id`),
-  KEY `profiles_photos_fk` (`photo_id`),
-  CONSTRAINT `profiles__users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `profiles_photos_fk` FOREIGN KEY (`photo_id`) REFERENCES `photos` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS profiles;
+CREATE TABLE profiles (
+  user_id int NOT NULL,
+  sex char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  birthday date DEFAULT NULL,
+  hometown varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  photo_id int(10) UNSIGNED DEFAULT NULL,
+  team_id INT UNSIGNED DEFAULT NULL,
+  CONSTRAINT profiles__users_fk
+ 	 FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE,
+  CONSTRAINT profiles_photos_fk
+ 	 FOREIGN KEY (photo_id)  REFERENCES photos (id) ON DELETE SET NULL  
+    );
 
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (365, 'M', '2012-05-07', '42739 Bergnaum Center Suite 719\nEast Eribertoville, WY 26456-8194', 1);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (38, 'M', '1986-02-11', '583 Nya Circle\nJohnathonhaven, MI 84632-6597', 2);
@@ -1250,12 +1251,12 @@ INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VA
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (154, 'D', '2005-06-27', '4558 Cole Court\nPort Ryleigh, LA 51422', 8);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (329, 'M', '2014-10-13', '75712 Graham Station\nWest Benjaminbury, ID 08975-9213', 9);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (370, 'D', '2013-05-20', '9462 Palma Centers Suite 446\nHarbertown, AR 69393', 10);
-INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (70, 'P', '2019-09-26', '5061 Johns Haven Apt. 343\nPort Maidafort, ID 89739-8915', 11);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (212, 'M', '2012-05-12', '9388 Lexus Trail\nSouth Maiatown, IA 43977-3858', 12);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (179, 'P', '2002-11-25', '575 Claudine Springs Apt. 229\nSouth Bretstad, TN 65262-4291', 13);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (284, 'P', '1993-11-28', '529 Aubrey Port Suite 882\nDavisside, SC 96904', 14);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (27, 'P', '1973-10-13', '9973 Roob Isle Apt. 833\nKaleighstad, WI 26313', 15);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (359, 'M', '1980-01-20', '812 Brook Canyon Suite 205\nElyssaborough, UT 05046-2245', 16);
+INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (70, 'P', '2019-09-26', '5061 Johns Haven Apt. 343\nPort Maidafort, ID 89739-8915', 11);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (115, 'M', '1998-10-05', '0801 Waylon Terrace\nPort Lisabury, HI 18245', 17);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (18, 'M', '1994-09-29', '7637 Kuhn Unions Suite 968\nStokesville, WA 97743', 18);
 INSERT INTO `profiles` (`user_id`, `sex`, `birthday`, `hometown`, `photo_id`) VALUES (357, 'D', '2012-01-24', '9574 Mann Lock\nNew Ada, WI 31762', 19);
@@ -2065,25 +2066,19 @@ DROP TABLE IF EXISTS `teams`;
 CREATE TABLE `teams` (
   `id` int(10) NOT NULL,
   `prjct_id` int(10) NOT NULL,
-  `user_id` int(10) NOT NULL,
-  `owner_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `teams_project_fk` (`prjct_id`),
-  KEY `teams_users_fk` (`user_id`),
-  KEY `teams_owner_fk` (`owner_id`),
-  CONSTRAINT `teams_owner_fk` FOREIGN KEY (`owner_id`) REFERENCES `owner_statuses` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `teams_project_fk` FOREIGN KEY (`prjct_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `teams_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  CONSTRAINT `teams_project_fk` FOREIGN KEY (`prjct_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE  
 ) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (1, 6, 47, 5);
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (1, 6, 12, 5);
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (1, 6, 11, 5);
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (2, 6, 44, 5);
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (2, 6, 171, 5);
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (3, 2, 95, 14);
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (3, 2, 357, 14);
-INSERT INTO `teams` (`id`, `prjct_id`, `user_id`, `owner_id`) VALUES (3, 2, 128, 14);
+INSERT INTO `teams` (`id`, `prjct_id`) VALUES (1, 6);
+INSERT INTO `teams` (`id`, `prjct_id`) VALUES (2, 6);
+INSERT INTO `teams` (`id`, `prjct_id`) VALUES (3, 1);
+INSERT INTO `teams` (`id`, `prjct_id`) VALUES (4, 5);
+INSERT INTO `teams` (`id`, `prjct_id`) VALUES (5, 5);
+INSERT INTO `teams` (`id`, `prjct_id`) VALUES (6, 7);
+INSERT INTO `teams` (`id`, `prjct_id`) VALUES (7, 9);
+INSERT INTO `teams` (`id`, `prjct_id`) VALUES (8, 9);
 
 
 #
