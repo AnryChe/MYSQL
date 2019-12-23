@@ -24,6 +24,7 @@ CREATE TABLE profiles (
   birthday date DEFAULT NULL,
   hometown varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   photo_id int(10) UNSIGNED DEFAULT NULL,
+  team_id INT UNSIGNED DEFAULT NULL,
   CONSTRAINT profiles__users_fk
  	 FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE,
   CONSTRAINT profiles_photos_fk
@@ -108,16 +109,10 @@ CREATE TABLE tasks_requests (
 -- таблица проектных команд, привязывает команду исполнителей и ПМ к проекту
 DROP TABLE IF EXISTS teams;
 CREATE TABLE teams (
-	id int(10)  PRIMARY KEY AUTO_INCREMENT,
+	id int(10) PRIMARY KEY AUTO_INCREMENT,
 	prjct_id int(10)  NOT NULL,
-	user_id int(10)  NOT NULL,
-	owner_id int(10)  NOT NULL,
 	CONSTRAINT teams_project_fk
-		FOREIGN KEY (prjct_id)  REFERENCES projects (id) ON DELETE CASCADE,
-	CONSTRAINT teams_users_fk
-		FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE,
-	CONSTRAINT teams_owner_fk
-		FOREIGN KEY (owner_id)  REFERENCES owner_statuses (id) ON DELETE RESTRICT ON UPDATE CASCADE
+		FOREIGN KEY (prjct_id)  REFERENCES projects (id) ON DELETE CASCADE
 	);
 
 -- таблица статусов контракта (принят, непринят, завершен, расторгнут)
