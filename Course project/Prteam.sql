@@ -115,6 +115,15 @@ CREATE TABLE teams (
 		FOREIGN KEY (prjct_id)  REFERENCES projects (id) ON DELETE CASCADE
 	);
 
+-- таблица привязки юзеров с командами
+DROP TABLE IF EXISTS users_teams;
+CREATE TABLE users_teams (
+	user_id int(10),
+	team_id int(10),
+		FOREIGN KEY (team_id)  REFERENCES teams (id) ON DELETE cascade,
+		FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE
+	);
+
 -- таблица статусов контракта (принят, непринят, завершен, расторгнут)
 DROP TABLE IF EXISTS contract_statuses;
 CREATE TABLE contract_statuses (
