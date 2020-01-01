@@ -14,17 +14,25 @@ UPDATE users_skills	SET start_data = FROM_UNIXTIME(UNIX_TIMESTAMP('1992-01-01') 
 	where user_id IN (SELECT * FROM (SELECT user_id FROM users_skills WHERE start_data < '1997-01-01') AS user_id); 
 
 
--- а теперь сам запрос на выборку пользователей с опытом, требуемым для решения задачи №8
-SELECT users.first_name, users.last_name, users.phone, tasks.name AS TASK, skills.name as SKILL, TRUNCATE((UNIX_TIMESTAMP(FINISH_DATA) - UNIX_TIMESTAMP(START_DATA))/31556926, 1) as exp_years from TASKS_REQUESTS
+-- а теперь сам запрос на выборку пользователей с опытом, требуемым для решения задачи №8. На вывод - данные пользователя, задача, требуемые скилы и опыт каждого юзера.
+SELECT users.first_name, users.last_name, users.phone, tasks.name AS task, skills.name as skill, TRUNCATE((UNIX_TIMESTAMP(FINISH_DATA) - UNIX_TIMESTAMP(START_DATA))/31556926, 1) as exp_years from TASKS_REQUESTS
 					LEFT JOIN users_skills ON (users_skills.skill_id  = tasks_requests.skill_id)
 					LEFT JOIN skills ON (users_skills.skill_id = skills.id)
 					LEFT JOIN users ON (users_skills.user_id = users.id)
 					LEFT JOIN tasks ON (tasks.id = tasks_requests.tsk_id) 
 					WHERE TSK_ID = 8
-					ORDER BY skill, exp_years DESC;                         -- С НОВЫМ ГОДОМ!
+					HAVING exp_years > 10
+					ORDER BY skill, exp_years desc;                         -- С НОВЫМ ГОДОМ!
 
 
--- привязка пользователя к конкретному заданию по результатам предыдущей выборки.
--- запрос поиска контрактов по определенному проекту если количество привлеченных исполнителей больше 7
--- выборка пользователей, занятых на определенных проектах с определенными скилами.
--- все задачи, которые попадались в проектах
+-- запрос поиска проектов если количество привлеченных исполнителей больше 4
+SELECT * from (
+	SELECT projects.id, projects.name, count(*) as TOTAL FROM PROJECTS 
+		JOIN TEAMS ON (teams.prjct_id = projects.id)
+		JOIN USERS_TEAMS ON (users_teams.team_id = teams.id)
+		GROUP BY projects.id
+		ORDER BY total desc) 
+	as teams where total >= 5;
+
+
+
