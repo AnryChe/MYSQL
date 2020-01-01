@@ -544,28 +544,31 @@ INSERT INTO contract_statuses (`id`, `name`) VALUES (6, 'HOLD');
 #
 # TABLE STRUCTURE FOR: contracts
 #
-
+use prteam;
 DROP TABLE IF EXISTS `contracts`;
 
 CREATE TABLE `contracts` (
   `owner_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
-  `status_id` int(10) unsigned NOT NULL,
+  `status_id` int(11) unsigned NOT NULL,
   `requested_at` datetime DEFAULT current_timestamp(),
   `confirmed_at` datetime DEFAULT NULL,
   KEY `contracts_owner_fk` (`owner_id`),
   KEY `contracts_users_fk` (`employee_id`),
   KEY `contracts_contract_statuses_fk` (`status_id`),
-  CONSTRAINT `contracts_contract_statuses_fk` FOREIGN KEY (`status_id`) REFERENCES `contract_statuses` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `contracts_owner_fk` FOREIGN KEY (`owner_id`) REFERENCES `owner_statuses` (`id`),
+  CONSTRAINT `contracts_contract_statuses_fk` FOREIGN KEY (`status_id`) REFERENCES `contract_statuses` (`id`),
+  CONSTRAINT `contracts_owner_fk` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`),
   CONSTRAINT `contracts_users_fk` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (1, 57, 2, '1996-03-21 10:36:52', '2009-03-06 07:03:35');
 INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (2, 173, 6, '2015-05-15 11:49:15', '1997-05-10 15:38:37');
 INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (3, 240, 4, '1985-05-18 10:10:06', '1986-04-20 21:05:47');
-INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (4, 44, 5, '1986-11-15 10:00:59', '1972-07-03 19:32:12');
-INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (5, 182, 4, '1971-08-08 04:25:07', '1992-11-17 13:41:48');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (4, 3, 1, '1986-11-15 10:00:59', '1972-07-03 19:32:12');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (5, 182, 1, '1971-08-08 04:25:07', '1992-11-17 13:41:48');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (6, 22, 3, '1971-08-08 04:25:07', '1992-11-17 13:41:48');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (7, 18, 3, '1971-08-08 04:25:07', '1992-11-17 13:41:48');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (8, 12, 3, '1971-08-08 04:25:07', '1992-11-17 13:41:48');
 
 
 #
