@@ -6,9 +6,9 @@ USE prteam;
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	FirstName VARCHAR(20) NOT NULL,
-    LastName VARCHAR(20) NOT NULL,
-    Phone VARCHAR(20) NOT NULL UNIQUE
+	first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(20) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE
 	);
 
 DROP TABLE IF EXISTS photos;
@@ -36,7 +36,7 @@ DROP TABLE IF EXISTS owner_statuses;
 CREATE TABLE owner_statuses (
 	id int PRIMARY KEY AUTO_INCREMENT,
 	name varchar(10),
-	describes varchar(255)
+	description varchar(255)
 	);
 
 -- скилы пользователей (для IT - знания языков программирования, стеков и т.д.). Вторая таблица - привязка типовых скилов к конкретному пользователю
@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS skills;
 CREATE TABLE skills (
 	id int PRIMARY KEY AUTO_INCREMENT,
 	name varchar(10),
-	describes varchar(255)
+	description varchar(255)
 	);
 
 DROP TABLE IF EXISTS Users_skills;
@@ -64,7 +64,7 @@ DROP TABLE IF EXISTS projects;
 CREATE TABLE projects (
 	id int PRIMARY KEY AUTO_INCREMENT,
 	name varchar(10),
-	describes varchar(255),
+	description varchar(255),
 	owner_id int NOT NULL,
 	CONSTRAINT projects_owners_fk
 		FOREIGN KEY (owner_id)  REFERENCES users (id) ON DELETE RESTRICT 
@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS tasks;
 CREATE TABLE tasks (
 	id int(10) PRIMARY KEY AUTO_INCREMENT,
 	name varchar(10),
-	describes varchar(255)
+	description varchar(255)
 	);
 
 -- таблица связи проекта, задач, исполнителей задач
