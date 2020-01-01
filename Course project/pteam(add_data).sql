@@ -530,6 +530,9 @@ CREATE TABLE `contract_statuses` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+ALTER TABLE contract_statuses 	-- поскольку изначально  предполагалось более короткое имя, а ограничения ключей уже установлены, изменяем длину значения в столбце.
+	MODIFY name varchar(12) COLLATE utf8_unicode_ci NOT null;
+
 INSERT INTO contract_statuses (`id`, `name`) VALUES (1, 'OFFERED');
 INSERT INTO contract_statuses (`id`, `name`) VALUES (2, 'ACCEPTED');
 INSERT INTO contract_statuses (`id`, `name`) VALUES (3, 'NOT ACCEPTED');
@@ -2763,3 +2766,4 @@ INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (65, 4);
 INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (297, 3);
 INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (321, 6);
 INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (33, 3);
+
