@@ -2732,3 +2732,34 @@ INSERT INTO `tasks_requests` (`id`, `tsk_id`, `skill_id`) VALUES (47, 35, 11);
 INSERT INTO `tasks_requests` (`id`, `tsk_id`, `skill_id`) VALUES (48, 48, 9);
 INSERT INTO `tasks_requests` (`id`, `tsk_id`, `skill_id`) VALUES (49, 42, 10);
 INSERT INTO `tasks_requests` (`id`, `tsk_id`, `skill_id`) VALUES (50, 2, 12);
+
+
+
+DROP TABLE IF EXISTS users_teams;
+CREATE TABLE users_teams (
+	user_id int(10),
+	team_id int(10),
+		FOREIGN KEY (team_id)  REFERENCES teams (id) ON DELETE cascade,
+		FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE
+	);
+
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (197, 6);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (94, 4);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (100, 8);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (253, 5);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (129, 3);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (374, 6);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (262, 5);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (384, 7);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (217, 3);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (336, 7);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (281, 2);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (389, 7);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (359, 5);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (298, 6);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (302, 8);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (175, 4);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (65, 4);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (297, 3);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (321, 6);
+INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (33, 3);
