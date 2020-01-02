@@ -164,4 +164,11 @@ CREATE TABLE messages (
 		FOREIGN KEY (to_user_id)  REFERENCES users (id) ON DELETE CASCADE
 );
 
-
+-- таблица статусов пользователя (заказчик, ПМ, наемник....)
+DROP TABLE IF EXISTS users_statuses;
+CREATE TABLE users_statuses (
+	user_id int(10),
+	owner_statuses_id int(10),
+		FOREIGN KEY (owner_statuses_id)  REFERENCES owner_statuses (id) ON DELETE cascade,
+		FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE
+	);
