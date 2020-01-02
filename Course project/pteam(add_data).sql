@@ -569,6 +569,10 @@ INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`,
 INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (6, 22, 3, '1971-08-08 04:25:07', '1992-11-17 13:41:48');
 INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (7, 18, 3, '1971-08-08 04:25:07', '1992-11-17 13:41:48');
 INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (8, 12, 3, '1971-08-08 04:25:07', '1992-11-17 13:41:48');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (1, 129, 3, '2005-08-08 04:25:07', '2005-11-17 13:41:48');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (1, 217, 3, '2005-08-08 04:25:07', '2005-11-17 13:41:48');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (1, 297, 3, '2005-08-08 04:25:07', '2005-11-17 13:41:48');
+INSERT INTO `contracts` (`owner_id`, `employee_id`, `status_id`, `requested_at`, `confirmed_at`) VALUES (1, 33, 3, '2005-08-08 04:25:07', '2005-11-17 13:41:48');
 
 
 #
@@ -2769,4 +2773,38 @@ INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (65, 4);
 INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (297, 3);
 INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (321, 6);
 INSERT INTO `users_teams` (`user_id`, `team_id`) VALUES (33, 3);
+
+
+DROP TABLE IF EXISTS `users_statuses`;
+
+CREATE TABLE `users_statuses` (
+  `user_id` int(10) DEFAULT NULL,
+  `owner_statuses_id` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (18, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (19, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (7, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (9, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (3, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (20, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (4, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (10, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (1, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (17, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (8, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (6, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (11, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (16, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (13, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (12, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (14, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (2, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (5, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (15, 1);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (129, 3);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (217, 3);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (297, 3);
+INSERT INTO `users_statuses` (`user_id`, `owner_statuses_id`) VALUES (33, 3);
+
 
