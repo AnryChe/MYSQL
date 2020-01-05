@@ -137,10 +137,11 @@ CREATE TABLE contracts (
 	owner_id INT  NOT NULL,
 	employee_id INT  NOT NULL,
 	status_id INT UNSIGNED NOT NULL,
+	team_id INT UNSIGNED,
 	requested_at  DATETIME DEFAULT NOW(),
 	confirmed_at  DATETIME,
 	CONSTRAINT contracts_owner_fk
-		FOREIGN KEY (owner_id)  REFERENCES owner_statuses (id) ON DELETE RESTRICT,
+		FOREIGN KEY (owner_id)  REFERENCES users (id) ON DELETE RESTRICT,
 	CONSTRAINT contracts_users_fk
 		FOREIGN KEY (employee_id)  REFERENCES users (id) ON DELETE RESTRICT,
 	CONSTRAINT contracts_contract_statuses_fk
@@ -172,3 +173,4 @@ CREATE TABLE users_statuses (
 		FOREIGN KEY (owner_statuses_id)  REFERENCES owner_statuses (id) ON DELETE cascade,
 		FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE
 	);
+
