@@ -14,7 +14,7 @@ UPDATE users_skills	SET start_data = FROM_UNIXTIME(UNIX_TIMESTAMP('1992-01-01') 
 	where user_id IN (SELECT * FROM (SELECT user_id FROM users_skills WHERE start_data < '1997-01-01') AS user_id); 
 
 
--- а теперь сам запрос на выборку пользователей с опытом, требуемым для решения задачи №8. На вывод - данные пользователя, задача, требуемые скилы и опыт каждого юзера.
+-- а теперь сам запрос на выборку пользователей с опытом, требуемым для решения задачи №8 длительностью более 10 лет. На вывод - данные пользователя, задача, требуемые скилы и опыт каждого юзера.
 SELECT users.first_name, users.last_name, users.phone, tasks.name AS task, skills.name as skill, TRUNCATE((UNIX_TIMESTAMP(FINISH_DATA) - UNIX_TIMESTAMP(START_DATA))/31556926, 1) as exp_years from TASKS_REQUESTS
 					LEFT JOIN users_skills ON (users_skills.skill_id  = tasks_requests.skill_id)
 					LEFT JOIN skills ON (users_skills.skill_id = skills.id)
